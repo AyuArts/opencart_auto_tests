@@ -7,6 +7,7 @@ class Default(BaseModel):
     url: str = "https://naveenautomationlabs.com/opencart/"
     driver: str = "chrome"
     timeout: int = 10
+    debug: bool = True
 
 
 class Settings(BaseSettings):
