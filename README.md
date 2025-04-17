@@ -108,3 +108,15 @@
 - [ ] Check that Canon EOS 5D has new price 98.00
 - [ ] Check that Nikon D300 has ex.rate 80.00
 
+### Commit Types
+
+- `feat`: a new feature.
+- `fix`: a bug fix.
+- `chore`: a routine task or maintenance (e.g., updating dependencies).
+- `refactor`: code changes that neither fix a bug nor add a feature.
+- `perf`: code changes that improve performance.
+- `test`: adding or modifying tests.
+- `build`: changes that affect the build system or external dependencies.
+- `ci`: changes related to CI/CD pipelines and scripts.
+- `docs`: documentation-only changes.
+- `style`: code style changes (e.g., formatting, indentation, missing semicolons) that do not affect functionality.
