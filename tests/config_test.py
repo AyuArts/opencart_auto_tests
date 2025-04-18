@@ -38,6 +38,22 @@ class One(BaseModel):
     text_expected: str = "Your Account Has Been Created!"
 
 
+class Two(BaseModel):
+    dropdown: str = "Desktops"
+    button_text: str = "Show All Desktops"
+    input_limit_id: str = "input-limit"
+    product_layout: str = "product-layout"
+    product_count: int = 12
+    input_limit_value_def: str = "20"
+    input_limit_value_new: str = "25"
+    input_sort_id: str = "input-sort"
+    input_sort_value_def: str = "Default"
+    pagination_selector: str = "div.col-sm-6.text-right"
+    pagination_text_expected: str = "Showing 1 to 12 of 12 (1 Pages)"
+    script_scroll: str = "window.scrollTo(0, document.body.scrollHeight);"
+
+
 class Numbers(BaseModel):
     zero: Zero = Field(default_factory=Zero)
     one: One = Field(default_factory=One)
+    two: Two = Field(default_factory=Two)

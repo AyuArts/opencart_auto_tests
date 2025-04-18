@@ -9,6 +9,5 @@ def get_driver():
         return webdriver.Firefox()
     elif settings.default.driver == "safari":
         return webdriver.Safari()
-
-
-driver = get_driver()
+    else:
+        raise ValueError("Unknown driver type in settings.default.driver")
