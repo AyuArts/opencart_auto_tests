@@ -1,26 +1,56 @@
+import allure
+from selenium.webdriver.common.by import By
 from core.base_test import BaseTest
 from config import settings
-from selenium.webdriver.common.by import By
+from core.logger import Logger
 
 
+log = Logger().get_logger("Test_zero")
+
+
+@allure.feature("Brands section")
+@allure.story("Verify default brand names are displayed on the Brands page")
+@allure.severity(allure.severity_level.CRITICAL)
 class TestZero(BaseTest):
+    """
+    UI test to verify that all expected brand names are shown
+    on the 'Brands' page accessed from the homepage.
+    """
+
+    @allure.title("Verify expected brands are listed on the Brands page")
     def test_brands(self):
-        # STEP 1 open default url
-        self.open_page()
+        """
+        Test Steps:
+        1. Open the homepage
+        2. Click on the 'Brands' link
+        3. Retrieve brand names from the page
+        4. Assert that all expected brands are present
+        """
+        with allure.step("Step 1: Open the home page"):
+            log.info("Opening the home page.")
+            self.open_page()
+            log.info("Home page successfully opened.")
 
-        # STEP 2 Click on 'Brands' at the bottom of the page
-        self.click_and_wait_for_url(
-            By.LINK_TEXT,
-            "Brands",
-            url_contains=settings.tests.zero.url_contains,
-        )
+        with allure.step(
+            "Step 2: Click on the 'Brands' link at the bottom of the page"
+        ):
+            log.info("Clicking on the 'Brands' link.")
+            self.click_and_wait_for_url(
+                by=By.LINK_TEXT,
+                locator="Brands",
+                url_contains=settings.tests.zero.url_contains,
+            )
+            log.info("Navigation to Brands page successful.")
 
-        # STEP 3 get elements by css selector
-        brand_names = self.get_elements(
-            By.CSS_SELECTOR,
-            locator=settings.tests.zero.css_selector,
-        )
+        with allure.step("Step 3: Retrieve the list of displayed brand names"):
+            log.info("Retrieving brand names from the page.")
+            brand_names = self.get_elements(
+                By.CSS_SELECTOR, settings.tests.zero.css_selector
+            )
+            log.info(f"Found brand names: {brand_names}")
 
-        # STEP 4 check brands [Apple,Canon,Hewlett-Packard,HTC,Palm,Sony]
-        for brand in settings.tests.zero.expected_brands:
-            assert brand in brand_names, f"Brand '{brand}' not found on the page"
+        with allure.step("Step 4: Verify all expected brand names are present"):
+            log.info("Verifying expected brand names are on the page.")
+            for brand in settings.tests.zero.expected_brands:
+                assert brand in brand_names, f"Brand '{brand}' not found on the page"
+                log.info(f"Brand '{brand}' is present.")
