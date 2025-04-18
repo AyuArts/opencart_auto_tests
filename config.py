@@ -7,10 +7,10 @@ class Default(BaseModel):
     url: str = "https://naveenautomationlabs.com/opencart/"
     driver: str = "chrome"
     timeout: int = 10
-    debug: bool = True
 
 
 class Settings(BaseSettings):
+    debug: bool = True
     default: Default = Field(default_factory=Default)
     tests: Numbers = Field(default_factory=Numbers)
 
