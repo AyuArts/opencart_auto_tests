@@ -25,6 +25,9 @@ class BaseTest:
             self.actions = ActionChains(self.driver)
             self.wait = WebDriverWait(self.driver, timeout=settings.default.timeout)
             log.info("WebDriver initialized and window maximized.")
+            log.info("Opening homepage.")
+            self.open_page()
+            log.info("Homepage opened successfully.")
         except Exception as e:
             log.exception("Error during setup_method: %s", str(e))
             raise

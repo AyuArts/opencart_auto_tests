@@ -20,25 +20,19 @@ class TestOne(BaseTest):
     def test_one(self):
         """
         Test Steps:
-        1. Open homepage
-        2. Click on dropdown menu
-        3. Navigate to registration page
-        4. Fill in registration fields
-        5. Accept terms checkbox
-        6. Submit registration form
-        7. Verify success message
+        1. Click on dropdown menu
+        2. Navigate to registration page
+        3. Fill in registration fields
+        4. Accept terms checkbox
+        5. Submit registration form
+        6. Verify success message
         """
-        with allure.step("Step 1: Open the homepage"):
-            log.info("Opening homepage.")
-            self.open_page()
-            log.info("Homepage opened successfully.")
-
-        with allure.step("Step 2: Click on dropdown menu"):
+        with allure.step("Step 1: Click on dropdown menu"):
             log.info("Clicking dropdown element.")
             self.click(by=By.XPATH, locator=settings.tests.one.dropdown)
             log.info("Dropdown menu clicked.")
 
-        with allure.step("Step 3: Navigate to registration page"):
+        with allure.step("Step 2: Navigate to registration page"):
             log.info("Clicking registration element and waiting for URL change.")
             self.click_and_wait_for_url(
                 by=By.XPATH,
@@ -47,15 +41,15 @@ class TestOne(BaseTest):
             )
             log.info("Navigated to registration page.")
 
-        with allure.step("Step 4: Fill in registration form fields"):
+        with allure.step("Step 3: Fill in registration form fields"):
             log.info(f"Filling registration fields: {settings.tests.one.fields_regs}")
             self.fill_fields(by=By.ID, fields=settings.tests.one.fields_regs)
 
-        with allure.step("Step 5: Accept terms and conditions checkbox"):
+        with allure.step("Step 4: Accept terms and conditions checkbox"):
             log.info("Clicking checkbox to accept terms.")
             self.click(by=By.XPATH, locator=settings.tests.one.check_box)
 
-        with allure.step("Step 6: Submit the registration form"):
+        with allure.step("Step 5: Submit the registration form"):
             log.info("Clicking continue button and waiting for confirmation page.")
             self.click_and_wait_for_url(
                 by=By.XPATH,
@@ -64,7 +58,7 @@ class TestOne(BaseTest):
             )
             log.info("Submitted registration form.")
 
-        with allure.step("Step 7: Verify success message is displayed"):
+        with allure.step("Step 6: Verify success message is displayed"):
             log.info("Retrieving and verifying confirmation text.")
             text_correct = self.get_text(
                 by=By.TAG_NAME, locator=settings.tests.one.text_correct
