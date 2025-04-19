@@ -21,28 +21,22 @@ class TestTwo(BaseTest):
     def test_two(self):
         """
         Test Steps:
-        1. Open the homepage
-        2. Hover over the dropdown menu
-        3. Click on the section button
-        4. Verify default selected limit and sorting
-        5. Verify number of displayed products
-        6. Change limit value and verify change
-        7. Verify pagination content
-        8. Scroll and verify pagination visibility
+        1. Hover over the dropdown menu
+        2. Click on the section button
+        3. Verify default selected limit and sorting
+        4. Verify number of displayed products
+        5. Change limit value and verify change
+        6. Verify pagination content
+        7. Scroll and verify pagination visibility
         """
-
-        with allure.step("Step 1: Open the homepage"):
-            log.info("Opening the homepage.")
-            self.open_page()
-
-        with allure.step("Step 2: Hover over the dropdown menu"):
+        with allure.step("Step 1: Hover over the dropdown menu"):
             log.info(f"Hovering over dropdown: {settings.tests.two.dropdown}")
             self.cursor_guidance(
                 By.LINK_TEXT,
                 settings.tests.two.dropdown,
             )
 
-        with allure.step("Step 3: Click on the catalog section"):
+        with allure.step("Step 2: Click on the catalog section"):
             log.info(f"Clicking button: {settings.tests.two.button_text}")
             self.click(
                 By.LINK_TEXT,
@@ -50,7 +44,7 @@ class TestTwo(BaseTest):
             )
 
         with allure.step(
-            "Step 4: Verify default selected values for 'Show' and 'Sort By' dropdowns"
+            "Step 3: Verify default selected values for 'Show' and 'Sort By' dropdowns"
         ):
             show_value = self.first_selected(
                 By.ID, settings.tests.two.input_limit_id
@@ -67,7 +61,7 @@ class TestTwo(BaseTest):
                 sort_value == settings.tests.two.input_sort_value_def
             ), f"Expected default 'Sort By' value: {settings.tests.two.input_sort_value_def}, got: {sort_value}"
 
-        with allure.step("Step 5: Verify number of displayed products"):
+        with allure.step("Step 4: Verify number of displayed products"):
             products = self.find_elements(
                 By.CLASS_NAME, settings.tests.two.product_layout
             )
@@ -76,7 +70,7 @@ class TestTwo(BaseTest):
                 len(products) == settings.tests.two.product_count
             ), f"Expected {settings.tests.two.product_count} products, found {len(products)}"
 
-        with allure.step("Step 6: Change 'Show' limit and verify update"):
+        with allure.step("Step 5: Change 'Show' limit and verify update"):
             log.info(
                 f"Changing 'Show' limit to: {settings.tests.two.input_limit_value_new}"
             )
@@ -93,7 +87,7 @@ class TestTwo(BaseTest):
                 new_show_value == settings.tests.two.input_limit_value_new
             ), f"Expected new 'Show' value: {settings.tests.two.input_limit_value_new}, got: {new_show_value}"
 
-        with allure.step("Step 7: Verify pagination text matches expected"):
+        with allure.step("Step 6: Verify pagination text matches expected"):
             pagination = self.find_element(
                 By.CSS_SELECTOR, settings.tests.two.pagination_selector
             )
@@ -102,7 +96,7 @@ class TestTwo(BaseTest):
                 pagination.text == settings.tests.two.pagination_text_expected
             ), f"Expected pagination text: '{settings.tests.two.pagination_text_expected}', got: '{pagination.text}'"
 
-        with allure.step("Step 8: Scroll and verify pagination is visible"):
+        with allure.step("Step 7: Scroll and verify pagination is visible"):
             log.info("Executing scroll script to bring pagination into view.")
             self.execute_script(settings.tests.two.script_scroll)
             assert (

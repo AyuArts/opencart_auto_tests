@@ -26,33 +26,28 @@ class TestThree(BaseTest):
     def test_three(self):
         """
         Test Steps:
-        1. Open the homepage
-        2. Hower over Desktops from top menu
-        3. Click on Show All Desktops
-        4. Select 'Name (A - Z)' from Sort by dropdown
-        5. Check that products were sorted correctly
-        6. Select 'Price (Low > High)' from Sort by dropdown
-        7. Check that products were sorted correctly
+        1. Hower over Desktops from top menu
+        2. Click on Show All Desktops
+        3. Select 'Name (A - Z)' from Sort by dropdown
+        4. Check that products were sorted correctly
+        5. Select 'Price (Low > High)' from Sort by dropdown
+        6. Check that products were sorted correctly
         """
-        with allure.step("Step 1: Open the homepage"):
-            log.info("Opening the homepage.")
-            self.open_page()
-
-        with allure.step("Step 2: Hover over the dropdown menu"):
+        with allure.step("Step 1: Hover over the dropdown menu"):
             log.info(f"Hovering over dropdown: {settings.tests.two.dropdown}")
             self.cursor_guidance(
                 By.LINK_TEXT,
                 settings.tests.two.dropdown,
             )
 
-        with allure.step("Step 3: Click on the catalog section"):
+        with allure.step("Step 2: Click on the catalog section"):
             log.info(f"Clicking button: {settings.tests.two.button_text}")
             self.click(
                 By.LINK_TEXT,
                 settings.tests.two.button_text,
             )
 
-        with allure.step("Step 4: We get the names of products'"):
+        with allure.step("Step 3: We get the names of products'"):
             filter_sort = "Name (A - Z)"
             log.info(f"Changing 'Sort' to: {filter_sort}")
             self.select_by_visible_text(
@@ -63,11 +58,11 @@ class TestThree(BaseTest):
             log.info(f"Product names found: {products}")
 
         with allure.step(
-            "Step 5: Verification of product sorting filter: 'Name (A - Z)'"
+            "Step 4: Verification of product sorting filter: 'Name (A - Z)'"
         ):
             assert is_sorted_ascending(products), "Products are not sorted A-Z"
 
-        with allure.step("Step 6: We get the prices of products"):
+        with allure.step("Step 5: We get the prices of products"):
             filter_sort = "Price (Low > High)"
             log.info(f"Changing 'Sort' to: {filter_sort}")
             self.select_by_visible_text(
@@ -80,7 +75,7 @@ class TestThree(BaseTest):
             log.info(f"Product price found: {products_price}")
 
         with allure.step(
-            "Step 7: Verification of product sorting filter: 'Price (Low > High)'"
+            "Step 6: Verification of product sorting filter: 'Price (Low > High)'"
         ):
             assert is_sorted_ascending(
                 products_price

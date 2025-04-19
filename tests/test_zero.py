@@ -21,18 +21,12 @@ class TestZero(BaseTest):
     def test_brands(self):
         """
         Test Steps:
-        1. Open the homepage
-        2. Click on the 'Brands' link
-        3. Retrieve brand names from the page
-        4. Assert that all expected brands are present
+        1. Click on the 'Brands' link
+        2. Retrieve brand names from the page
+        3. Assert that all expected brands are present
         """
-        with allure.step("Step 1: Open the home page"):
-            log.info("Opening the home page.")
-            self.open_page()
-            log.info("Home page successfully opened.")
-
         with allure.step(
-            "Step 2: Click on the 'Brands' link at the bottom of the page"
+            "Step 1: Click on the 'Brands' link at the bottom of the page"
         ):
             log.info("Clicking on the 'Brands' link.")
             self.click_and_wait_for_url(
@@ -42,14 +36,14 @@ class TestZero(BaseTest):
             )
             log.info("Navigation to Brands page successful.")
 
-        with allure.step("Step 3: Retrieve the list of displayed brand names"):
+        with allure.step("Step 2: Retrieve the list of displayed brand names"):
             log.info("Retrieving brand names from the page.")
             brand_names = self.get_elements(
                 By.CSS_SELECTOR, settings.tests.zero.css_selector
             )
             log.info(f"Found brand names: {brand_names}")
 
-        with allure.step("Step 4: Verify all expected brand names are present"):
+        with allure.step("Step 3: Verify all expected brand names are present"):
             log.info("Verifying expected brand names are on the page.")
             for brand in settings.tests.zero.expected_brands:
                 assert brand in brand_names, f"Brand '{brand}' not found on the page"
