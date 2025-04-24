@@ -72,12 +72,6 @@ pytest -q --alluredir=reports
 allure serve reports
 ```
 
-Override settings via env vars or CLI flags:
-
-```bash
-export OC_URL="https://demo.opencart.com/"
-pytest -k cameras
-```
 
 ---
 
