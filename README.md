@@ -8,19 +8,6 @@ End‑to‑end regression suite for the **OpenCart demo store** built with **Pyt
 
 ---
 
-## Table of Contents
-
-- [Tech Stack](#tech-stack)  
-- [Project Layout](#project-layout)  
-- [Getting Started](#getting-started)  
-- [Running Tests](#running-tests)  
-- [Test Scenarios](#test-scenarios)  
-- [Handy Poetry Commands](#handy-poetry-commands)  
-- [Contributing](#contributing)  
-- [License](#license)
-
----
-
 ## Tech Stack
 
 | Category    | Tool                                     |
