@@ -2,7 +2,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![CI](https://img.shields.io/github/actions/workflow/status/AyuArts/opencart_auto_tests/tests.yml?label=CI)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 End‑to‑end regression suite for the **OpenCart demo store** built with **Python + Selenium** using the **Page Object Model** pattern.
 
@@ -103,12 +102,6 @@ allure serve reports
 
 Issues and PRs are welcome!  
 Follow the [Angular commit style](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format) (`feat:`, `fix:`, `test:` …).
-
----
-
-## License
-
-[MIT](LICENSE)
 
 ---
 
