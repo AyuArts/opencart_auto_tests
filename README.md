@@ -55,7 +55,6 @@ poetry shell
 ```
 
 > **Prerequisites:** a local Chrome/Firefox installation and the matching *driver* in `$PATH`.  
-> For Dockerised runs check the forthcoming `docker-compose.yml`.
 
 ---
 
