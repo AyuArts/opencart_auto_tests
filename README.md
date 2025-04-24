@@ -1,7 +1,6 @@
 # OpenCart UI Automation Tests
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
-![CI](https://img.shields.io/github/actions/workflow/status/AyuArts/opencart_auto_tests/tests.yml?label=CI)
 
 End‑to‑end regression suite for the **OpenCart demo store** built with **Python + Selenium** using the **Page Object Model** pattern.
 
